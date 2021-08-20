@@ -1,7 +1,7 @@
 const NavBar = ({ menuList }) => {
     return (
         <header className="header">
-            <div className="logo"><h1>EAGLE HOTEL</h1></div>
+            <div className="logo"><h1>TECH MARKET</h1></div>
             <nav className="nav">
                 <ul className="menu">
                     {menuList.map((item, index) => (

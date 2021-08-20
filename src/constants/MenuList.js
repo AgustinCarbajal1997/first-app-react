@@ -4,20 +4,24 @@ const MENU_LIST = [
         href:"#/"
     },
     {
-        name:"HOTEL",
-        href:"#/hotel"
+        name:"CELULARES",
+        href:"#/celulares"
     },
     {
-        name:"EVENTOS",
-        href:"#/eventos"
+        name:"ELECTRODOMESTICOS",
+        href:"#/electrodomesticos"
     },
     {
-        name:"RESERVAS",
-        href:"#/reservas"
+        name:"NOTEBOOKS",
+        href:"#/notebooks"
     },
     {
-        name:"UBICACION",
-        href:"#/ubicacion"
+        name:"RELOJES",
+        href:"#/relojes"
     },
+    {
+        name:<i class="fas fa-shopping-cart"></i>,
+        href:"#/cart"
+    }
 ]
 export default MENU_LIST;
