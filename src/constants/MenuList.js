@@ -20,7 +20,7 @@ const MENU_LIST = [
         href:"#/relojes"
     },
     {
-        name:<i class="fas fa-shopping-cart"></i>,
+        name:<i className="fas fa-shopping-cart"></i>,
         href:"#/cart"
     }
 ]

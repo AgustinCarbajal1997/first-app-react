@@ -137,3 +137,12 @@ body {
   font-size: 1.4rem;
 }
 
+.div-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-counter{
+  margin: 10px;
+}
+
