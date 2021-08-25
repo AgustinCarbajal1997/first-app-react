@@ -1,4 +1,4 @@
-import ItemCountContainer from "./ItemCountContainer"
+import ItemCount from "./ItemCount"
 
 const ProductsItem = ({ listProducts }) => {
     return (
@@ -12,7 +12,7 @@ const ProductsItem = ({ listProducts }) => {
                     <h2>{item.title}</h2>
                     <h3>$ {item.price}</h3>
                     <div>
-                        <ItemCountContainer initial={0} stock={parseInt(item.unites)} />
+                        <ItemCount initial={0} stock={parseInt(item.unites)} />
                     </div>
                 </div>
             ))}
