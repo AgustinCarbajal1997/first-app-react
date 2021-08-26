@@ -1,25 +1,32 @@
-import React, { useState, useEffect } from "react";
-import ProductsItem from "./ProductsItem";
+import React, { useState } from "react";
+import { productList } from "../constants/productsList";
+import ItemList from "./ItemList";
+
 const ItemListContainer = () => {
-    const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
-useEffect(() => {
-    (async ()=>{
-        const response = await fetch("https://ecommerce-app-f9d78-default-rtdb.firebaseio.com/productos/.json");
-        const data = await response.json();
-        const filterProducts = data.filter(item => item.article === "cellphone")
+  const productsPromise = new Promise((resolve, reject) => {
+    resolve(
+      setTimeout(() => {
+        setProducts(productList);
+      }, 2000)
+    );
+    reject("Ha ocurrido un error");
+  });
 
-        setProducts(filterProducts);
-    })()
-}, [])
-    
-    console.log(products)
+  productsPromise
+    .then(() => {
+      console.log(products);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-    return (
-        <div>
-            <ProductsItem listProducts={products}/>
-        </div>
-    )
-}
+  return (
+    <div>
+      <ItemList listProducts={products} />
+    </div>
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

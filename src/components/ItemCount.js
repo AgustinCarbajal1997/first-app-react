@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ItemCountContainer = ({ initial, stock }) => {
+const ItemCount = ({ initial, stock }) => {
     const [counter, setCounter] = useState(initial)
 
     const onAddHandler = () => {
@@ -11,14 +11,22 @@ const ItemCountContainer = ({ initial, stock }) => {
         if(counter === initial) return;
         setCounter(counter - 1)
     }
+    const onAdd = () => {
+        if(counter === 0) return;
+        console.log(`Se agrega al carrito ${counter} unidades`)
+    }
 
     return (
-        <div className="div-button">
-            <button className="button-counter" onClick={onSubtractHandler}>-</button>
-            <h2>{counter}</h2>
-            <button className="button-counter" onClick={onAddHandler}>+</button>
+        <div className="div-buttons">
+            <div className="div-counter">
+                <button className="button-counter" onClick={onSubtractHandler}>-</button>
+                <h2>{counter}</h2>
+                <button className="button-counter" onClick={onAddHandler}>+</button>
+            </div>
+            <button className="add-to-cart-button" onClick={onAdd}>Agregar al carrito</button>
+
         </div>
     )
 }
 
-export default ItemCountContainer
+export default ItemCount

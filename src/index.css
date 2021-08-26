@@ -119,6 +119,7 @@ body {
 }
 .product-item{
   text-align: center;
+  list-style: none;
 }
 .product-item__image{
   width: 50%;
@@ -131,18 +132,42 @@ body {
 .product-item h2{
   font-family: sans-serif;
   font-size: 1.2rem;
+  color: rgb(47, 41, 33);
 }
 .product-item h3{
   font-family: sans-serif;
   font-size: 1.4rem;
+  color: rgb(47, 41, 33);
 }
 
-.div-button{
+.div-buttons{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 .button-counter{
   margin: 10px;
+}
+.div-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.div-counter button {
+  background-color: white;
+  border: none;
+  color: rgb(185, 151, 104);
+  font-size: 2rem;
+  cursor: pointer;
+}
+.add-to-cart-button{
+  background-color: white;
+  border: solid rgb(185, 151, 104) 2px;
+  border-radius: 7px;
+  color: rgb(185, 151, 104);
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 

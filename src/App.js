@@ -11,6 +11,7 @@ function App() {
     <div>
       <NavBar menuList={MENU_LIST}/> 
       <ItemListContainer/>
+      
     </div>
   );
 }
