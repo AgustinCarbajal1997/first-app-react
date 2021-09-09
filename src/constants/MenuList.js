@@ -1,23 +1,23 @@
 const MENU_LIST = [
     {
         name:"INICIO",
-        href:"#/"
+        href:"/"
     },
     {
         name:"CELULARES",
-        href:"#/celulares"
+        href:"/category/cellphone"
     },
     {
-        name:"ELECTRODOMESTICOS",
-        href:"#/electrodomesticos"
+        name:"TELEVISORES",
+        href:"/category/tv"
     },
     {
         name:"NOTEBOOKS",
-        href:"#/notebooks"
+        href:"/category/notebook"
     },
     {
         name:"RELOJES",
-        href:"#/relojes"
+        href:"/category/smartwatch"
     },
     {
         name:<i className="fas fa-shopping-cart"></i>,

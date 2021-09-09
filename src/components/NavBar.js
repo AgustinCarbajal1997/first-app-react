@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 const NavBar = ({ menuList }) => {
     return (
         <header className="header">
@@ -5,7 +6,7 @@ const NavBar = ({ menuList }) => {
             <nav className="nav">
                 <ul className="menu">
                     {menuList.map((item, index) => (
-                        <li className="menu__item" key={index}><a href={item.href}>{item.name}</a></li>
+                        <li className="menu__item" key={index}><Link to={item.href}>{item.name}</Link></li>
                     ))}
                 </ul>
             </nav>
