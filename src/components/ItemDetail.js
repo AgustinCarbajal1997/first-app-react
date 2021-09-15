@@ -1,6 +1,15 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import ItemCount from "./ItemCount";
 const ItemDetail = ({ item }) => {
-    const [currentImg, setCurrentImg] = useState(0)
+    const [currentImg, setCurrentImg] = useState(0);
+    const [itemCountValue, setItemCountValue] = useState(null);
+
+    const onAdd = (itemNumber) => {
+        alert(`Has agregado al carrito ${itemNumber} unidades del producto ${item.title}`);
+        setItemCountValue(itemNumber);
+    }
+
     return (
         <>
          <div className="product-view-carousel">
@@ -18,7 +27,11 @@ const ItemDetail = ({ item }) => {
             <div className="product-view-title-info">
                 <h2>{item.title}</h2>
                 <h3>${item.price}</h3>
-                <button>COMPRAR</button>
+                { itemCountValue 
+                    ? <Link to="/cart"><button>TERMINAR COMPRA</button></Link>
+                    : <ItemCount initial={1} stock={parseInt(item.unites)} onAdd={onAdd}/>
+                }
+                
             </div>
             <div className="product-view-specifications">
                 <h2>{item.title}</h2>

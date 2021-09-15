@@ -146,36 +146,7 @@ body {
   color: rgb(47, 41, 33);
 }
 
-.div-buttons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.button-counter{
-  margin: 10px;
-}
-.div-counter{
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-}
-.div-counter button {
-  background-color: white;
-  border: none;
-  color: rgb(185, 151, 104);
-  font-size: 2rem;
-  cursor: pointer;
-}
-.add-to-cart-button{
-  background-color: white;
-  border: solid rgb(185, 151, 104) 2px;
-  border-radius: 7px;
-  color: rgb(185, 151, 104);
-  font-size: 1.5rem;
-  cursor: pointer;
-}
 
 
 /* PRODUCT VIEW */
@@ -247,6 +218,7 @@ body {
   text-align: left;
 }
 .product-view-title-info button{
+  
   width: 100%;
   background-color: black;
   color: rgb(185, 151, 104);
@@ -313,5 +285,40 @@ body {
 }
 .product-view-features__li p{
   line-height: 24px;
+}
+
+
+.div-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.button-counter{
+  margin: 10px;
+}
+.div-counter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.div-counter button {
+  background-color: white;
+  border: none;
+  color: rgb(185, 151, 104);
+  font-size: 2rem;
+  cursor: pointer;
+  
+}
+.add-to-cart-button{
+  background-color: white;
+  border: solid rgb(185, 151, 104) 2px;
+  border-radius: 7px;
+  color: rgb(185, 151, 104);
+  font-size: 1.5rem;
+  cursor: pointer;
+  
 }
 
