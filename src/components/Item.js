@@ -1,4 +1,4 @@
-import ItemCount from "./ItemCount";
+
 import { Link } from "react-router-dom";
 
 
@@ -13,10 +13,8 @@ const Item = ({ item }) => {
       </div>
       <h2>{item.title}</h2>
       <h3>$ {item.price}</h3>
+      <button className="add-to-cart-button">VER PRODUCTO</button>  
     </Link>
-      <div>
-        <ItemCount initial={0} stock={parseInt(item.unites)} />
-      </div>
     </li>
   );
 };
