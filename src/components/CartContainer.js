@@ -6,7 +6,10 @@ const CartContainer = () => {
 
     return (
         <>
-            <CartList products={products} />
+            { products.length > 0 
+            ? <CartList products={products} />
+            : <div className="alert-cart-no-products"><h2>NO HAY PRODUCTOS EN EL CARRITO</h2></div>
+            }
         </>
     )
 }
