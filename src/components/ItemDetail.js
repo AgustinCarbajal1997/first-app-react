@@ -1,14 +1,17 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
 import ItemCount from "./ItemCount";
+import { CartContext } from "../context/CartContext";
+
 const ItemDetail = ({ item }) => {
     const [currentImg, setCurrentImg] = useState(0);
-    const [itemCountValue, setItemCountValue] = useState(null);
+    // const [itemCountValue, setItemCountValue] = useState(null);
+    const { products,addProduct } = useContext(CartContext)
 
     const onAdd = (itemNumber) => {
-        alert(`Has agregado al carrito ${itemNumber} unidades del producto ${item.title}`);
-        setItemCountValue(itemNumber);
+        addProduct({...item, quantity:itemNumber})
     }
+
+    console.log(products)
 
     return (
         <>
@@ -27,10 +30,8 @@ const ItemDetail = ({ item }) => {
             <div className="product-view-title-info">
                 <h2>{item.title}</h2>
                 <h3>${item.price}</h3>
-                { itemCountValue 
-                    ? <Link to="/cart"><button>TERMINAR COMPRA</button></Link>
-                    : <ItemCount initial={1} stock={parseInt(item.unites)} onAdd={onAdd}/>
-                }
+                <ItemCount initial={1} stock={parseInt(item.unites)} onAdd={onAdd}/>
+                
                 
             </div>
             <div className="product-view-specifications">
