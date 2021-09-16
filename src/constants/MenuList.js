@@ -21,7 +21,7 @@ const MENU_LIST = [
     },
     {
         name:<i className="fas fa-shopping-cart"></i>,
-        href:"#/cart"
+        href:"/cart"
     }
 ]
 export default MENU_LIST;

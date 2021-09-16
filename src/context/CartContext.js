@@ -19,10 +19,17 @@ const CustomProvider = ({ children }) => {
 
     }
 
-    const removeProduct = (id) => {}
+    const removeProduct = (id) => {
+        const newArray = products.filter(item => item.id !== id);
+        setProducts(newArray)
+    }
+
+    const clearProducts = () => {
+        setProducts([])
+    }
 
     return (
-        <Provider value={{ products, addProduct, removeProduct }}>
+        <Provider value={{ products, addProduct, removeProduct, clearProducts }}>
             { children }
         </Provider>
 
