@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import { productList } from "../constants/productsList";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router";
-
-// promise para simular consulta a base de datos
-const getItems = () => {
-    return new Promise((resolve, reject)=>{
-        resolve(productList);
-        reject("Ha ocurrido un error");
-    })
-}
+import { firestore } from "../firebase";
 
 const ItemDetailContainer = () => {
     const { id } = useParams()
@@ -19,17 +12,16 @@ const ItemDetailContainer = () => {
 
     
     useEffect(() => {
-        getItems()
-            .then((response)=>{
-                setTimeout(() => {
-                    console.log(response)
-                    const filterProduct = response.find(item => item.id === parseInt(id))
-                    console.log(filterProduct);
-                    setItemDetail(filterProduct); 
-                }, 2000)
-            }) 
+        const collection = firestore.collection("items");
+        let query = collection.doc(id);
+        query = query.get();
+
+        query
+            .then((snapshot)=>{
+                setItemDetail(snapshot.data())
+            })
             .catch((error)=> console.log(error))
-    }, [])
+    }, [id])
 
     return (
         <div className="product-view">

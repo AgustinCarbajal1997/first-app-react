@@ -18,10 +18,6 @@ const MENU_LIST = [
     {
         name:"RELOJES",
         href:"/category/smartwatch"
-    },
-    {
-        name:<i className="fas fa-shopping-cart"></i>,
-        href:"/cart"
     }
 ]
 export default MENU_LIST;
