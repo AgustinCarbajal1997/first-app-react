@@ -386,5 +386,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+.alert-cart-no-products button{
+  background-color: #ffffff;
+  border:2px solid rgb(185, 151, 104);
+  color: rgb(185, 151, 104);
+  font-size: 1rem;
+  font-family: sans-serif;
+  cursor: pointer;
 }
 
