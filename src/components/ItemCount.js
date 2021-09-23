@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { BiPlusCircle, BiMinusCircle } from 'react-icons/bi';
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [counter, setCounter] = useState(initial);
 
@@ -17,11 +17,11 @@ const ItemCount = ({ initial, stock, onAdd }) => {
     <div className="div-buttons">
       <div className="div-counter">
         <button className="button-counter" onClick={onSubtractHandler}>
-          -
+          <BiMinusCircle/>
         </button>
         <h2>{counter}</h2>
         <button className="button-counter" onClick={onAddHandler}>
-          +
+          <BiPlusCircle/>
         </button>
       </div>
       <button className="add-to-cart-button" onClick={()=> onAdd(counter)}>

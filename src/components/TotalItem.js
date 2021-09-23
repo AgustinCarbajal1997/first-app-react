@@ -15,6 +15,7 @@ const TotalItem = ({ products }) => {
         <div className="cart-total-products">
             <h2>TOTAL</h2>
             <h3>${total}</h3>
+            <button>Finalizar compra</button>
         </div>
     )
 }

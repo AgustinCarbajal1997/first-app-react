@@ -13,7 +13,7 @@ const Item = ({ item }) => {
       </div>
       <h2>{item.title}</h2>
       <h3>$ {item.price}</h3>
-      <button className="add-to-cart-button">VER PRODUCTO</button>  
+      <button>VER MAS</button>  
     </Link>
     </li>
   );

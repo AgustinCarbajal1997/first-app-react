@@ -1,23 +1,27 @@
 const MENU_LIST = [
     {
-        name:"INICIO",
+        name:"Inicio",
         href:"/"
     },
     {
-        name:"CELULARES",
+        name:"Celulares",
         href:"/category/cellphone"
     },
     {
-        name:"TELEVISORES",
+        name:"Tv, Audio y Video",
         href:"/category/tv"
     },
     {
-        name:"NOTEBOOKS",
+        name:"Notebooks y Tablets",
         href:"/category/notebook"
     },
     {
-        name:"RELOJES",
+        name:"Relojes",
         href:"/category/smartwatch"
+    },
+    {
+        name:"Aires Acondicionados",
+        href:"/category/split"
     }
 ]
 export default MENU_LIST;

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { productList } from "../constants/productsList";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router";
 import { firestore } from "../firebase";
