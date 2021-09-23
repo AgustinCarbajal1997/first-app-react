@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { RiShoppingCartLine } from 'react-icons/ri';
 import { CgMenuGridR } from 'react-icons/cg';
+import SearchInput from "./SearchInput";
 
 const NavBar = ({ menuList }) => {
     const [productsCart, setProductsCart] = useState(0);
@@ -18,9 +19,7 @@ const NavBar = ({ menuList }) => {
                 <div className="logo">
                     <h1>TECH MARKET</h1>
                 </div>
-                <div className="input-search">
-                    <input type="text" placeholder="Buscar productos"/>
-                </div>
+                <SearchInput/>
                 <div className="icon-cart">
                     <Link to="/cart"><RiShoppingCartLine color="#b99768" size="2rem"/>{productsCart ? <h3>{productsCart}</h3> : null}</Link>
                 </div>

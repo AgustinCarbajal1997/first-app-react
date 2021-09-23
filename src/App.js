@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import MENU_LIST from "./constants/MenuList";
 import CustomProvider from "./context/CartContext";
 import CartContainer from "./components/CartContainer";
+import SearcherContainer from "./components/SearcherContainer";
 
 
 
@@ -19,8 +20,10 @@ function App() {
           <Route exact path="/" component={ItemListContainer}/>
           <Route path="/category/:id" component={ItemListContainer}/>
           <Route path="/item/:id" component={ItemDetailContainer}/>
+          {/* <Route path="/search?q=:value" component={SearcherContainer}/> */}
+          <SearcherContainer/>
           <Route path="/cart" component={CartContainer}/>
-          <ItemDetailContainer/>
+          {/* <ItemDetailContainer/> */}
 
         </Switch>
       </CustomProvider>
