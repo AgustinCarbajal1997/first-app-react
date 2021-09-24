@@ -4,13 +4,13 @@ import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ item }) => {
     const [currentImg, setCurrentImg] = useState(0);
-    const { products,addProduct } = useContext(CartContext)
+    const { addProduct } = useContext(CartContext)
 
     const onAdd = (itemNumber) => {
         addProduct({...item, quantity:itemNumber})
     }
 
-    console.log(products)
+    
 
     return (
         <>

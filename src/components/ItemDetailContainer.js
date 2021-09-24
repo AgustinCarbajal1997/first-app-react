@@ -7,7 +7,6 @@ const ItemDetailContainer = () => {
     const { id } = useParams()
     const [itemDetail, setItemDetail] = useState(null)
 
-    console.log("useParams", typeof id)
 
     
     useEffect(() => {

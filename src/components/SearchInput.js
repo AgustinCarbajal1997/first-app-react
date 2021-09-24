@@ -7,7 +7,6 @@ const SearchInput = () => {
   const [text, setText] = useState("");
   const [searchPath, setSearchPath] = useState("");
   const history = useHistory();
-  console.log(useHistory())
 
   useEffect(() => {
     let newPath = text.trim().replace(/\s+/g, "-").toLocaleLowerCase();

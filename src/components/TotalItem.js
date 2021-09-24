@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 
 const TotalItem = ({ products }) => {
     const [total, setTotal] = useState(0)
-    console.log(products)
     useEffect(() => {
         const total = products.map((item)=> item.quantity * item.price).reduce((a,b)=> a + b)
         

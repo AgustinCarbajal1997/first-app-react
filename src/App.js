@@ -20,10 +20,9 @@ function App() {
           <Route exact path="/" component={ItemListContainer}/>
           <Route path="/category/:id" component={ItemListContainer}/>
           <Route path="/item/:id" component={ItemDetailContainer}/>
-          {/* <Route path="/search?q=:value" component={SearcherContainer}/> */}
-          <SearcherContainer/>
           <Route path="/cart" component={CartContainer}/>
-          {/* <ItemDetailContainer/> */}
+          <SearcherContainer/>
+          
 
         </Switch>
       </CustomProvider>
