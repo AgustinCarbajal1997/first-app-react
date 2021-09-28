@@ -10,7 +10,7 @@ const NavBar = ({ menuList }) => {
     const [openMenu, setOpenMenu] = useState(false)
     const { products } = useContext(CartContext);
     useEffect(() => {
-        if(products.length === 0) return;
+        if(products.length === 0) return setProductsCart(0);
         setProductsCart(products.map(item => item.quantity).reduce((a, b)=> a + b))
     }, [products])
     return (

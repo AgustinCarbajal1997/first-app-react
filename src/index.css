@@ -6,6 +6,8 @@ body {
   background-color: #f5f5f5;
 }
 
+
+
 .header {
   display: grid;
   width: 100%;
@@ -95,6 +97,15 @@ body {
   font-size: 1.4rem;
   letter-spacing: 2px;
   position: relative;
+}
+
+/* LOADING BARS */
+.loading-bars{
+  position: fixed;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* PRODUCT VIEW MOBILE */
@@ -375,15 +386,48 @@ body {
   font-weight: 700;
   font-size: .7rem;
 }
-.cart-item__data button {
-  background-color: #ffffff;
-  border: 2px solid rgb(185, 151, 104);
-  color: rgb(185, 151, 104);
-  font-size: .7rem;
-  font-family: sans-serif;
-  cursor: pointer;
+
+.cart-item-buttons{
+  display: flex;
+  justify-content: space-between;
 }
 
+.cart-item-addition-subtract{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-item-addition-subtract h2{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+}
+.cart-item-addition-subtract button{
+  background-color: #ffffff;
+  border: none;
+  color: rgb(185, 151, 104);
+  font-size: 2rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.cart-item-delete-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.cart-item-delete-button button{
+  background-color: #ffffff;
+  border: none;
+  color: darkred;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 .alert-cart-no-products {
   width: 100%;
   height: 80vh;
@@ -409,8 +453,218 @@ body {
 }
 
 
+/* PAYMENT INFORMATION */
+
+.payment-information-page{
+  width: 100%;
+}
+.payment-information-form{
+  width: 95%;
+  margin: auto;
+}
+.payment-information-form h2{
+  
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.payment-information-form div{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.payment-information-form label{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #383838;
+}
+.payment-information-form-input{
+  height: 30px;
+  margin-top: 5px;
+  border: 1px solid #dddddd;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  outline: none;
+}
+.payment-input-error{
+  border: 1px solid red;
+}
+
+.payment-information-detail{
+  width: 95%;
+  margin: 0px auto;
+}
+.payment-information-detail div h2{
+  color: #383838;
+}
+.payment-information-detail div ul{
+  /* width: 95%; */
+  list-style: none;
+  padding: 0;
+}
+.payment-information-detail div li{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #dddddd 1px solid;
+}
+.payment-information-detail div li h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 4px;
+
+}
+.payment-information-detail div div{
+  display: flex;
+  justify-content: space-between;
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.payment-information-detail div button{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(185, 151, 104);
+    color: #f5f5f5;
+    border: none;
+    padding: 13px 18px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.payment-order-container{
+  width: 100%;
+  min-height: 100vh;
+}
+.payment-order{
+  width: 95%;
+  margin: auto;
+}
+.payment-order h2{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #383838;
+}
+.payment-order-buyer-data{
+  width: 95%;
+  margin: auto;
+}
+.payment-order-buyer-data h3{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+.payment-order-buyer-data h4 {
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding-left: 5px;
+}
+.payment-order-buyer-data h4 span{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.payment-order-purchase-detail{
+  width: 95%;
+  margin: 0 auto;
+}
+.payment-order-purchase-detail h3{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+.payment-order-purchase-detail h4{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding-left: 5px;
+}
+.payment-order-purchase-detail h4 span{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+.payment-order-purchase-detail ul{
+  width: 95%;
+  margin:auto;
+  list-style: none;
+  padding: 0;
+}
+.payment-order-purchase-detail ul li{
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-order-purchase-detail ul li h5{
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: .8rem;
+  margin: 0 0 10px 0;
+}
+.payment-order-purchase-detail div {
+  display: flex;
+  justify-content: space-between;
+}
+.payment-order-purchase-detail div h4 {
+  color: #383838;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 768px){
+  /* PAYMENT INFORMATION */
+  .payment-information-form{
+    width: 95%;
+    margin: auto;
+    display: grid;
+    grid-template-areas: "title title";
+    grid-template-columns: 50% 50%;
+  }
+  .payment-information-form h2{
+    grid-area: title;
+  } 
+
+  .payment-order{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "title title"
+                          "buyer detail";
+  }
+  .payment-order h2{
+    grid-area: title;
+  }
+  .payment-order-buyer-data{
+    grid-area: buyer;
+  }
+  .payment-order-purchase-detail{
+    grid-area: detail;
+  }
+}
+
 
 @media screen and (min-width: 1050px) {
+ 
+  /* HEADER */
   .header {
     display: grid;
     width: 100%;
@@ -555,7 +809,8 @@ body {
     align-items: center;
   }
   .product-view-carousel__bigImage img {
-    width: unset;
+    width: auto;
+    height: 400px;
     margin: auto;
   }
   .product-view-carousel__previewPics {
@@ -783,7 +1038,9 @@ body {
     object-fit: cover;
     object-position: center;
   }
-
+  .cart-item__data{
+    position: relative;
+  }
   .cart-item__data h2 {
     color: #383838;
     font-family: "Open Sans", sans-serif;
@@ -796,15 +1053,50 @@ body {
     font-weight: 700;
     font-size: 1.2rem;
   }
-  .cart-item__data button {
+  .cart-item-buttons{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cart-item-addition-subtract{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .cart-item-addition-subtract h2{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .cart-item-addition-subtract button{
     background-color: #ffffff;
-    border: 2px solid rgb(185, 151, 104);
+    border: none;
     color: rgb(185, 151, 104);
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: sans-serif;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
   }
-
+  .cart-item-delete-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .cart-item-delete-button button{
+    background-color: #ffffff;
+    border: none;
+    color: darkred;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
   .alert-cart-no-products {
     width: 100%;
     height: 80vh;
@@ -826,6 +1118,109 @@ body {
     font-weight: 400;
     font-size: 1.2rem;
     cursor: pointer;
+  }
+
+  /* PAYMENT INFORMATION */
+
+  .payment-information-page{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+  .payment-information-detail div{
+    width: 95%;
+    margin: auto;
+  }
+   /* ORDEN DE COMPRA */
+   .payment-order{
+    width: 70%;
+    margin: 50px auto;
+    border: 2px solid #383838;
+    padding: 0px 40px;
+    /* background-color: #ffffff; */
+  }
+  .payment-order h2{
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #383838;
+    text-align: left;
+  }
+  .payment-order-buyer-data{
+    width: 95%;
+    margin: auto;
+  }
+  .payment-order-buyer-data h3{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+  .payment-order-buyer-data h4 {
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    padding-left: 5px;
+  }
+  .payment-order-buyer-data h4 span{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .payment-order-purchase-detail{
+    width: 95%;
+    margin: 0 auto;
+  }
+  .payment-order-purchase-detail h3{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+  .payment-order-purchase-detail h4{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+    padding-left: 5px;
+  }
+  .payment-order-purchase-detail h4 span{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .payment-order-purchase-detail ul{
+    width: 90%;
+    margin:auto;
+    list-style: none;
+    padding: 0;
+  }
+  .payment-order-purchase-detail ul li{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .payment-order-purchase-detail ul li h5{
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+  }
+  .payment-order-purchase-detail div {
+    display: flex;
+    justify-content: space-between;
+  }
+  .payment-order-purchase-detail div h4 {
+    color: #383838;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6rem;
   }
 }
 
@@ -909,7 +1304,7 @@ body {
 .add-to-cart-button {
   background-color: white;
   border: solid rgb(185, 151, 104) 2px;
-  border-radius: 7px;
+  
   color: rgb(185, 151, 104);
   font-size: 1.5rem;
   cursor: pointer;

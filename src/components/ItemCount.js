@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { BiPlusCircle, BiMinusCircle } from 'react-icons/bi';
+import { toast } from "react-toastify";
 const ItemCount = ({ initial, stock, onAdd }) => {
   const [counter, setCounter] = useState(initial);
 
   const onAddHandler = () => {
-    if (counter === stock) return;
+    if (counter === stock) return toast.info("¡Ha llegado al límite del stock!",{ style:{backgroundColor:"#383838", color:"#ffffff"}});
     setCounter(counter + 1);
   };
   const onSubtractHandler = () => {

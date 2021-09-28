@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { toast } from "react-toastify";
+
 
 export const CartContext = createContext()
 const { Provider } = CartContext;
@@ -9,14 +11,24 @@ const CustomProvider = ({ children }) => {
     const addProduct = (dataProduct) => {
         const isInCart = products.find(item => item.id === dataProduct.id);
         if(!isInCart){
-            setProducts([...products,dataProduct]);
-        }else{
-            let modifyProduct = products.filter(item => item.id !== isInCart.id);
-            isInCart.quantity = isInCart.quantity + dataProduct.quantity;
-            modifyProduct = [...modifyProduct, isInCart]
-            setProducts(modifyProduct)
+            setProducts([...products, dataProduct]);
         }
 
+    }
+
+    const addQuantity = (id) => {
+        const findIndexProduct = products.findIndex((item)=> item.itemId === id);
+        if(products[findIndexProduct].quantity === products[findIndexProduct].unites) return toast.info("¡Ha llegado al límite del stock!",{ style:{backgroundColor:"#383838", color:"#ffffff"}});
+        const productsCopy = [...products];
+        productsCopy[findIndexProduct].quantity += 1
+        setProducts(productsCopy);
+    }
+    const subtractQuantity = (id) => {
+        const findIndexProduct = products.findIndex((item)=> item.itemId === id);
+        if(products[findIndexProduct].quantity === 1) return;
+        const productsCopy = [...products];
+        productsCopy[findIndexProduct].quantity -= 1
+        setProducts(productsCopy);
     }
 
     const removeProduct = (id) => {
@@ -29,7 +41,7 @@ const CustomProvider = ({ children }) => {
     }
 
     return (
-        <Provider value={{ products, addProduct, removeProduct, clearProducts }}>
+        <Provider value={{ products, addProduct, addQuantity, subtractQuantity, removeProduct, clearProducts }}>
             { children }
         </Provider>
 

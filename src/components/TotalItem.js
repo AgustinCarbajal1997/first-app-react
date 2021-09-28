@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router"
 
 const TotalItem = ({ products }) => {
     const [total, setTotal] = useState(0)
+    const history = useHistory();
     useEffect(() => {
-        const total = products.map((item)=> item.quantity * item.price).reduce((a,b)=> a + b)
-        
+        const total = products.map((item)=> item.quantity * item.price).reduce((a,b)=> a + b);
         setTotal(total);
     }, [products])
         
-
+    const onClickPaymentInformation = () => {
+        history.push("/payment-information");
+    }
 
     return (
         <div className="cart-total-products">
             <h2>TOTAL</h2>
             <h3>${total}</h3>
-            <button>Finalizar compra</button>
+            <button onClick={onClickPaymentInformation}>Finalizar compra</button>
         </div>
     )
 }
