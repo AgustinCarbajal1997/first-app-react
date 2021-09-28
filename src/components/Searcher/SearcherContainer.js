@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
-import { firestore } from "../firebase";
-import ItemList from "./ItemList";
-import LoadingBars from "./LoadingBars";
+import { firestore } from "../../firebase";
+import ItemList from "../ListingProducts/ItemList";
+import LoadingBars from "../LoadingBars";
 
 const SearcherContainer = () => {
   const [products, setProducts] = useState([]);

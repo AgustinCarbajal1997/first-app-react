@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router";
-import { firestore } from "../firebase";
-import LoadingBars from "./LoadingBars";
+import { firestore } from "../../firebase";
+import LoadingBars from "../LoadingBars";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -45,6 +45,12 @@ const ItemListContainer = () => {
 
     }
   }, [id]);
+
+  
+  
+
+
+
 
   return (
     <div>

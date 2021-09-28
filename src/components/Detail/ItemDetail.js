@@ -1,25 +1,17 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { ToastContainer } from "react-toastify";
+import { CartContext } from "../../context/CartContext";
 import ItemCount from "./ItemCount";
-import { CartContext } from "../context/CartContext";
 import { useHistory } from "react-router";
-const ItemDetail = ({ item, id }) => {
-    const { addProduct, products } = useContext(CartContext);
+const ItemDetail = ({ item, isExist }) => {
+    const { addProduct } = useContext(CartContext);
     const [currentImg, setCurrentImg] = useState(0);
-    const [isExist, setIsExist] = useState(null);
     const history = useHistory();
+    
 
     const onAdd = (itemNumber) => {
         addProduct({...item, quantity:itemNumber})
     }
-    
-    useEffect(() => {
-        if(products.length > 0){
-            const findProductCart = products.find((item)=> item.itemId === id);
-            findProductCart ? setIsExist(true) : setIsExist(null);
-        }
-    }, [id, products])
-
     
 
     return (
@@ -37,18 +29,24 @@ const ItemDetail = ({ item, id }) => {
                 </div>
             </div>
             
-            
             <div className="product-view-title-info">
                 <h2>{item.title}</h2>
                 <h3>$ {item.price}</h3>
-                {
-                  isExist
-                    ? <div className="div-buttons" onClick={()=> history.push("/cart")}><button className="add-to-cart-button">Ir al carrito</button></div>
-                    : <ItemCount initial={1} stock={parseInt(item.unites)} onAdd={onAdd}/>
-                       
-                }
-                
+
+                    {
+                        !item.unites && (<div><h3>No hay stock por el momento</h3></div>)
+                    }
+                    {
+                        (item.unites && isExist) ? <div className="div-buttons" onClick={()=> history.push("/cart")}><button className="add-to-cart-button">Ir al carrito</button></div> : null
+                    }
+                    {
+                        (item.unites && !isExist) ? <ItemCount initial={1} stock={parseInt(item.unites)} onAdd={onAdd}/> : null
+                    }
+                    
             </div>
+            
+            
+                
                 
                 
             <div className="product-view-specifications">

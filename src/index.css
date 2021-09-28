@@ -18,10 +18,13 @@ body {
 
 .logo {
   grid-area: logo;
+  padding: 20px ;
 }
-.logo h1 {
+.logo a {
+  text-decoration: none;
   width: 90%;
   height: 100%;
+  
   margin: 20px auto;
   color: #b99768;
   font-family: "Open Sans", sans-serif;
@@ -631,7 +634,43 @@ body {
   font-weight: 700;
   font-size: 1.2rem;
 }
+
+/* FOOTER */
+.footer-container{
+  background-color: #383838;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  margin-top: 10%;
+}
+.footer-container div{
+  color: #f5f5f5;
+}
+.footer-container div h3{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.footer-container div h4{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 0px;
+}
+.footer-icons{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
 @media screen and (min-width: 768px){
+  /* MAIN */
+  .main{
+    min-height: 80vh;
+    padding-bottom: 40px;
+  }
+
   /* PAYMENT INFORMATION */
   .payment-information-form{
     width: 95%;
@@ -659,6 +698,36 @@ body {
   .payment-order-purchase-detail{
     grid-area: detail;
   }
+
+
+  /* FOOTER */
+  .footer-container{
+    display: grid;
+    grid-template-columns: 30% 30% 30% 10%;
+    grid-template-areas: "institution help clientele icons"
+                          "name name name name";
+    width: 90%;
+    margin:auto;
+  }
+  .footer-institution{
+    grid-area: institution;
+  }
+  .footer-help{
+    grid-area: help;
+  }
+  .footer-clientele{
+    grid-area: clientele;
+  }
+  .footer-icons{
+    grid-area: icons;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-name{
+    grid-area: name;
+    text-align: center;
+  }
+
 }
 
 
@@ -685,8 +754,9 @@ body {
     align-items: center;
     width: 100%;
     text-align: center;
+    padding: 0;
   }
-  .logo h1 {
+  .logo a {
     width: 90%;
     margin: auto;
     padding: 20px 0;

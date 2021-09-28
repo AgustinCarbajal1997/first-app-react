@@ -7,6 +7,9 @@ import REGULAR_EXPRESSION from "./RegularExpressions";
 import { formReducer } from "./FormReducer";
 import { firestore } from "../../firebase";
 import { ToastContainer, toast } from "react-toastify";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
 const PaymentInformationContainer = () => {
     const [state, dispatch] = useReducer(formReducer, INITIAL_FORM_STATE)
     const { products, clearProducts } = useContext(CartContext);
@@ -36,6 +39,7 @@ const PaymentInformationContainer = () => {
             }
         });
 
+        // agregando un nueva orden
         const dataBuyer = Object.keys(state).reduce((obj, item)=> ({ ...obj, [item]:state[item].value }),{});
         
         const selectedProducts = products.map((item)=> ({ 
@@ -63,6 +67,27 @@ const PaymentInformationContainer = () => {
                 clearProducts()
             })
             .catch((error)=> console.log(error))
+        
+        // modificando el stock
+
+        const collection = firestore.collection("items").where(firebase.firestore.FieldPath.documentId(), "in", selectedProducts.map(item => item.itemId));
+        const query = collection.get();
+        const batch = firestore.batch();
+
+        query
+        .then((snapshot)=>{
+          snapshot.docs.forEach((docSnapshot) => {
+            const findIndex = selectedProducts.findIndex(item => item.itemId === docSnapshot.id);
+            if(docSnapshot.data().unites >= selectedProducts[findIndex].quantity){
+              batch.update(docSnapshot.ref, { unites: docSnapshot.data().unites - selectedProducts[findIndex].quantity });
+            }
+            
+          })
+        })
+        .then(()=>{
+          batch.commit()
+        })
+
 
     }
 

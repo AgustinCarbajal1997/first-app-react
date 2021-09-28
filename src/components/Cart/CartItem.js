@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { CartContext } from "../context/CartContext"
+import { CartContext } from "../../context/CartContext"
 import { BiPlusCircle, BiMinusCircle } from 'react-icons/bi';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { ToastContainer } from "react-toastify";
