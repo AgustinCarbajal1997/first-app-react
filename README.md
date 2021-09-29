@@ -4,7 +4,11 @@
 Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursada. Consiste, brevemente, en el desarrollo de un ecommerce utilizando React JS, además de todas las herramientas vistas en clases, como ser: React-Router-Dom, useContext, Firebase. Tambien se agregaron librerias como React Toastify, React Icons y React Loading. Por otro lado, para los estilos se utilizó CSS puro con la finalidad de que el proyecto conserve su originalidad y, fundamentalmente, continuar perfeccionandome en su uso. 
 
 
-In the project directory, you can run:
+## Convenciones
+
+* Se utiliza la arquitectura de división de componentes en aquellos que son contenedores (con toda o casi toda la lógica del componente) y aquellos otros que son de presentación (con aquello que se va a renderizar en pantalla, ignorando de donde provienen sus datos). Esta modularidad permite una fácil reutilización de los componentes, como se da en el caso, en este proyecto, con el ItemList (utilizado para mostrar productos tanto por ItemListContainer como por SearchContainer).
+* A la hora de definir las funciones me inclinó por utilizar las arrow functions. En cuanto a su nomenclatura, cuando se trata de una función componente utilizo UpperCamelCase, si se trata de un método dentro de un componente utilizo lowerCamelCase.
+* Para la nomenclatura de los archivos utilizo UpperCamelCase.
 
 ### `npm start`
 
