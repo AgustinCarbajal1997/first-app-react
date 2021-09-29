@@ -11,15 +11,20 @@ Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursad
 * Para la nomenclatura de los archivos utilizo UpperCamelCase.
 
 ## Flujo de compra
-Ingresá al producto que te interesa, seleccioná la cantidad y lo agregás al carrito de compras. Llenás tus datos y recibirás una orden de pago con tus datos y los de la compra.
+Ingresá al producto que te interesa, seleccioná la cantidad y lo agregás al carrito de compras. Llenás tus datos y recibirás una orden de pago con tus datos y los de la compra. Veamos un ejemplo:
 
 ![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-1.gif)
 
 ## Flujo de búsqueda
-Integrado con el header, encontrarás una barra de búsquedas. La misma, para funcionar, utiliza uno de los parámetros de comparación del método where de Firestore. Se trata de 'array-contains-any'. Esto, junto con algunos tags o keywords introducidos en cada registro de producto en base de datos, permite que puedas escribir en la barra de búsqueda palabras claves (tales como celular, Samsung, notebook, acondicionado, aire, etc...). El buscador arrojará las coincidencias que encuentre y los pintará en pantalla.
+Integrado con el header, encontrarás una barra de búsquedas. La misma, para funcionar, utiliza uno de los parámetros de comparación del método where de Firestore. Se trata de 'array-contains-any'. Esto, junto con algunos tags o keywords introducidos en cada registro de producto en base de datos, permite que puedas escribir en la barra de búsqueda palabras claves (tales como celular, Samsung, notebook, acondicionado, aire, etc...). El buscador arrojará las coincidencias que encuentre y los pintará en pantalla. Veamos un ejemplo:
 
 ![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-2.gif)
 
+
+## Flujo de stocks
+Cada artículo tiene un número limitado de unidades. Cuando intentes agregar al carrito un número superior al stock, se te mostrará una notificacón de dicho límite alcanzado. Por otro lado las compras son dinámicas, esto quiere decir que una vez que confirmes tu compra y recibas la orden de pago, los productos se descontarán de la base de datos. Esto podrás corroborarlo ingresando nuevamente al producto y probando su límite máximo o en el caso de que hayas comprado todas las unidades, en la pagina del producto figurará que no hay unidades en existencia por el momento. Esta funcionalidad se realiza a traves del batch.update de firestore. Veamos un ejemplo:
+
+![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-3.gif)
 
 ### `npm start`
 
