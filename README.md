@@ -1,7 +1,7 @@
 # Proyecto final del curso de React JS - CoderHouse
 
 ## Acerca del proyecto
-Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursada. Consiste, brevemente, en el desarrollo de un ecommerce utilizando React JS, además de todas las herramientas vistas en clases, como ser: React-Router-Dom, useContext, Firebase. Tambien se agregaron librerias como React Toastify, React Icons y React Loading. Por otro lado, para los estilos se utilizó CSS puro con la finalidad de que el proyecto conserve su originalidad y, fundamentalmente, continuar perfeccionandome en su uso. 
+Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursada. Consiste, brevemente, en el desarrollo de un ecommerce utilizando React JS, además de todas las herramientas vistas en clases, como ser: React-Router-Dom, useContext, Firebase. Tambien se agregaron librerias como React Toastify, React Icons y React Loading. Por otro lado, para los estilos se utilizó CSS puro con la finalidad de que el proyecto conserve su originalidad y, fundamentalmente, continuar perfeccionando su uso. 
 
 
 ## Convenciones
