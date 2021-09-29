@@ -10,7 +10,16 @@ Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursad
 * A la hora de definir las funciones me inclinó por utilizar las arrow functions. En cuanto a su nomenclatura, cuando se trata de una función componente utilizo UpperCamelCase, si se trata de un método dentro de un componente utilizo lowerCamelCase.
 * Para la nomenclatura de los archivos utilizo UpperCamelCase.
 
+## Flujo de compra
+Ingresá al producto que te interesa, seleccioná la cantidad y lo agregás al carrito de compras. Llenás tus datos y recibirás una orden de pago con tus datos y los de la compra.
+
 ![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-1.gif)
+
+## Flujo de búsqueda
+Integrado con el header, encontrarás una barra de búsquedas. La misma, para funcionar, utiliza uno de los parámetros de comparación del método where de Firestore. Se trata de 'array-contains-any'. Esto, junto con algunos tags o keywords introducidos en cada registro de producto en base de datos, permite que puedas escribir en la barra de búsqueda palabras claves (tales como celular, Samsung, notebook, acondicionado, aire, etc...). El buscador arrojará las coincidencias que encuentre y los pintará en pantalla.
+
+![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-2.gif)
+
 
 ### `npm start`
 
