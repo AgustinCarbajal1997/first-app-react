@@ -10,6 +10,8 @@ Este proyecto es el resultado final de todo lo trabajado a lo largo de la cursad
 * A la hora de definir las funciones me inclinó por utilizar las arrow functions. En cuanto a su nomenclatura, cuando se trata de una función componente utilizo UpperCamelCase, si se trata de un método dentro de un componente utilizo lowerCamelCase.
 * Para la nomenclatura de los archivos utilizo UpperCamelCase.
 
+![alt-text](https://github.com/AgustinCarbajal1997/first-app-react/blob/master/public/buying-product-1.gif)
+
 ### `npm start`
 
 Runs the app in the development mode.\
