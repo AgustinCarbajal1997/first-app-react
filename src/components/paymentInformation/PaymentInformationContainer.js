@@ -41,6 +41,8 @@ const PaymentInformationContainer = () => {
                     color:"#ffffff"
                 }
             });
+            dispatch({ type: "TOTAL_BLUR_REGEX" })
+
             return;
         }
         // agregando un nueva orden

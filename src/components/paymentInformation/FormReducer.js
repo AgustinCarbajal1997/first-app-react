@@ -19,6 +19,9 @@ export const formReducer = (state, action) => {
                 ...state,
                 [action.payload]: blurModification
             }
+        case "TOTAL_BLUR_REGEX":
+            let newState = Object.keys(state).reduce((obj, item)=> ({ ...obj, [item]: { ...state[item], onBlur:true } }),{})
+            return newState;
         default:
             return state;
     }
