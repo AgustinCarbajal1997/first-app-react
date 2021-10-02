@@ -33,16 +33,18 @@ const PaymentInformationContainer = () => {
     }
 
     const onConfirmCartHandler = () => {
-        setLoading(true);
         const checkedInputs  = Object.values(state).map((item)=> item.checked).every((item)=> item === true);
-        if(!checkedInputs) return toast.error("¡No ha completado todos los campos!",{
-            style:{
-                backgroundColor:"#383838",
-                color:"#ffffff"
-            }
-        });
-
+        if(!checkedInputs){
+            toast.error("¡No ha completado todos los campos!",{
+                style:{
+                    backgroundColor:"#383838",
+                    color:"#ffffff"
+                }
+            });
+            return;
+        }
         // agregando un nueva orden
+        setLoading(true);
         const dataBuyer = Object.keys(state).reduce((obj, item)=> ({ ...obj, [item]:state[item].value }),{});
         
         const selectedProducts = products.map((item)=> ({ 
