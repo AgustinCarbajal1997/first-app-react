@@ -1,4 +1,4 @@
-import { useReducer, useContext } from "react";
+import { useReducer, useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import PaymentInformation from "./PaymentInformation";
@@ -9,8 +9,10 @@ import { firestore } from "../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import LoadingBars from "../LoadingBars";
 
 const PaymentInformationContainer = () => {
+    const [loading, setLoading] = useState(false);
     const [state, dispatch] = useReducer(formReducer, INITIAL_FORM_STATE)
     const { products, clearProducts } = useContext(CartContext);
     const history = useHistory();
@@ -31,6 +33,7 @@ const PaymentInformationContainer = () => {
     }
 
     const onConfirmCartHandler = () => {
+        setLoading(true);
         const checkedInputs  = Object.values(state).map((item)=> item.checked).every((item)=> item === true);
         if(!checkedInputs) return toast.error("¡No ha completado todos los campos!",{
             style:{
@@ -65,8 +68,13 @@ const PaymentInformationContainer = () => {
             .then(({ id })=>{
                 history.push(`/payment-information/${id}`);
                 clearProducts()
+                setLoading(false);
             })
-            .catch((error)=> console.log(error))
+            .catch((error)=> {
+                toast.error("¡Ha ocurrido un error!");
+                setLoading(false);
+                console.log(error);
+            })
         
         // modificando el stock
 
@@ -110,6 +118,7 @@ const PaymentInformationContainer = () => {
                     </div>)
             }
             <ToastContainer/>
+            { loading &&  <LoadingBars/>}
         </>
     )
 }
