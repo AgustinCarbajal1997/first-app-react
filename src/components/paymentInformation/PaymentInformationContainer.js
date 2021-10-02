@@ -42,9 +42,9 @@ const PaymentInformationContainer = () => {
                 }
             });
             dispatch({ type: "TOTAL_BLUR_REGEX" })
-
             return;
         }
+        
         // agregando un nueva orden
         setLoading(true);
         const dataBuyer = Object.keys(state).reduce((obj, item)=> ({ ...obj, [item]:state[item].value }),{});
