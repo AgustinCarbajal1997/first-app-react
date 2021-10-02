@@ -70,13 +70,13 @@ const PaymentInformationContainer = () => {
         
         orders.add(newOrder)
             .then(({ id })=>{
+                setLoading(false);
                 history.push(`/payment-information/${id}`);
                 clearProducts()
-                setLoading(false);
             })
             .catch((error)=> {
-                toast.error("¡Ha ocurrido un error!");
                 setLoading(false);
+                toast.error("¡Ha ocurrido un error!");
                 console.log(error);
             })
         
@@ -121,8 +121,8 @@ const PaymentInformationContainer = () => {
                     <Link to="/"><button >HOME</button></Link>
                     </div>)
             }
-            <ToastContainer/>
             { loading &&  <LoadingBars/>}
+            <ToastContainer/>
         </>
     )
 }
