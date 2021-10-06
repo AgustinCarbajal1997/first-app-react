@@ -34,7 +34,7 @@ const SearcherContainer = () => {
       {
         !products.length && !loading
           ? (<div className="alert-cart-no-products">
-                <h2>NO SE HA ENCONTRÓ EL PRODUCTO BUSCADO</h2>
+                <h2>NO SE HA ENCONTRADO EL PRODUCTO BUSCADO</h2>
                 <Link to="/"><button >HOME</button></Link>
             </div>)
           : <ItemList listProducts={products} />
