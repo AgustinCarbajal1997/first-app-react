@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { firestore } from "../../firebase";
 import ItemList from "../ListingProducts/ItemList";
 import LoadingBars from "../LoadingBars";
@@ -30,7 +31,14 @@ const SearcherContainer = () => {
   }, [search]);
   return (
     <div>
-      <ItemList listProducts={products} />
+      {
+        !products.length && !loading
+          ? (<div className="alert-cart-no-products">
+                <h2>NO SE ENCONTRÓ EL PRODUCTO BUSCADO</h2>
+                <Link to="/"><button >HOME</button></Link>
+            </div>)
+          : <ItemList listProducts={products} />
+      }
       { loading &&  <LoadingBars/>}
     </div>
   );
