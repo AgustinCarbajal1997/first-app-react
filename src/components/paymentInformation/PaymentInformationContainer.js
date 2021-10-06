@@ -67,39 +67,36 @@ const PaymentInformationContainer = () => {
             total
         }
         const orders = firestore.collection("orders");
-        
-        orders.add(newOrder)
-            .then(({ id })=>{
-                setLoading(false);
-                history.push(`/payment-information/${id}`);
-                clearProducts()
-            })
-            .catch((error)=> {
-                setLoading(false);
-                toast.error("¡Ha ocurrido un error!");
-                console.log(error);
-            })
-        
-        // modificando el stock
 
         const collection = firestore.collection("items").where(firebase.firestore.FieldPath.documentId(), "in", selectedProducts.map(item => item.itemId));
         const query = collection.get();
         const batch = firestore.batch();
 
-        query
-        .then((snapshot)=>{
-          snapshot.docs.forEach((docSnapshot) => {
-            const findIndex = selectedProducts.findIndex(item => item.itemId === docSnapshot.id);
-            if(docSnapshot.data().unites >= selectedProducts[findIndex].quantity){
-              batch.update(docSnapshot.ref, { unites: docSnapshot.data().unites - selectedProducts[findIndex].quantity });
-            }
-            
-          })
-        })
-        .then(()=>{
-          batch.commit()
-        })
 
+        Promise.all([
+            orders.add(newOrder),
+            query
+        ])
+        .then((response)=>{
+            const [newOrder, snapshot] = response;
+            // actualiza stocks
+            snapshot.docs.forEach((docSnapshot) => {
+                const findIndex = selectedProducts.findIndex(item => item.itemId === docSnapshot.id);
+                if(docSnapshot.data().unites >= selectedProducts[findIndex].quantity){
+                  batch.update(docSnapshot.ref, { unites: docSnapshot.data().unites - selectedProducts[findIndex].quantity });
+                }
+            })
+            batch.commit() 
+            // cupon de compra
+            setLoading(false);
+            history.push(`/payment-information/${newOrder.id}`);
+            clearProducts()            
+        })
+        .catch((error)=>{
+            setLoading(false);
+            toast.error("¡Ha ocurrido un error!");
+            console.log(error);
+        })
 
     }
 
